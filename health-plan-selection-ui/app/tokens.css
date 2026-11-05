@@ -1,0 +1,188 @@
+/*
+ * tokens.css
+ * Design tokens for Already Yours.
+ * Source: Figma "AY-Design", page "Design System". Matches Figma as of Oct 23, 2026.
+ * Light mode only (no dark mode in the design yet).
+ *
+ * Two layers:
+ *   1. Palette: raw values, named exactly like Figma (harbor/700 -> --color-harbor-700)
+ *   2. Roles: what a color is for (text, surface, border, action). Use these in components.
+ *
+ * Rule of thumb: components use roles, roles point at the palette.
+ * Sizes are in rem so text and spacing respect the user's browser font size.
+ * Assumes the browser default of 16px = 1rem. Do not set html { font-size } smaller.
+ */
+
+:root {
+  /* ============ 1. PALETTE ============ */
+
+  /* Harbor (primary) */
+  --color-harbor-50:  #edf8fc;
+  --color-harbor-100: #c3e8f6;
+  --color-harbor-200: #98d7f0;
+  --color-harbor-300: #6ec7ea;
+  --color-harbor-400: #44b7e4;
+  --color-harbor-500: #1fa4d8;
+  --color-harbor-600: #1984ae;
+  --color-harbor-700: #136484;
+  --color-harbor-800: #0d4459;
+  --color-harbor-900: #07232f;
+
+  /* Neutral */
+  --color-neutral-50:  #f3f5f6;
+  --color-neutral-100: #d7dce2;
+  --color-neutral-200: #bcc3cd;
+  --color-neutral-300: #a0aab9;
+  --color-neutral-400: #8491a4;
+  --color-neutral-500: #69798e;
+  --color-neutral-600: #556172;
+  --color-neutral-700: #404957;
+  --color-neutral-800: #2b323b;
+  --color-neutral-900: #171a1f;
+
+  /* Green (success) */
+  --color-green-50:  #effaf5;
+  --color-green-100: #caf0de;
+  --color-green-200: #a4e5c7;
+  --color-green-300: #7fdaaf;
+  --color-green-400: #59cf98;
+  --color-green-500: #38c080;
+  --color-green-600: #2d9a67;
+  --color-green-700: #22754e;
+  --color-green-800: #174f35;
+  --color-green-900: #0c2a1c;
+
+  /* Amber (warning) */
+  --color-amber-50:  #fef7ec;
+  --color-amber-100: #fce3be;
+  --color-amber-200: #f9cf90;
+  --color-amber-300: #f7bb62;
+  --color-amber-400: #f4a734;
+  --color-amber-500: #eb920c;
+  --color-amber-600: #bd750a;
+  --color-amber-700: #8f5908;
+  --color-amber-800: #613c05;
+  --color-amber-900: #332003;
+
+  /* Red (error) */
+  --color-red-50:  #fcefee;
+  --color-red-100: #f5c8c4;
+  --color-red-200: #eda19b;
+  --color-red-300: #e67a72;
+  --color-red-400: #df5349;
+  --color-red-500: #d23125;
+  --color-red-600: #a9271e;
+  --color-red-700: #801e17;
+  --color-red-800: #57140f;
+  --color-red-900: #2e0b08;
+
+  --color-white: #ffffff;
+
+  /* ============ 2. COLOR ROLES ============ */
+  /* Contrast ratios are from Figma and were re-checked. */
+
+  /* Text */
+  --color-text-primary:    var(--color-neutral-900); /* 15.9:1 on surface-page, AAA */
+  --color-text-secondary:  var(--color-neutral-700); /*  8.3:1 on surface-page, AAA */
+  --color-text-on-primary: var(--color-white);       /*  6.6:1 on action-default, AA */
+  --color-text-link:       var(--color-harbor-800);  /* 10.6:1 on surface-card, AAA */
+  --color-text-success:    var(--color-green-800);   /*  8.9:1 on surface-success, AAA */
+  --color-text-warning:    var(--color-amber-800);   /*  9.1:1 on surface-warning, AAA */
+  --color-text-error:      var(--color-red-700);     /*  8.8:1 on surface-error, AAA */
+
+  /* Surface */
+  --color-surface-page:    var(--color-neutral-50);
+  --color-surface-card:    var(--color-white);
+  --color-surface-primary: var(--color-harbor-50);
+  --color-surface-success: var(--color-green-50);
+  --color-surface-warning: var(--color-amber-50);
+  --color-surface-error:   var(--color-red-50);
+
+  /* Border */
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong:  var(--color-neutral-400);  /* 3.2:1 on surface-card, AA for UI */
+
+  /* Action */
+  --color-action-default: var(--color-harbor-700);   /* white text 6.6:1, AA */
+  --color-action-pressed: var(--color-harbor-800);   /* white text 10.6:1, AAA */
+  --color-action-call:    var(--color-green-700);    /* white text 5.6:1, AA */
+
+  /* ============ TYPOGRAPHY ============ */
+  /* Font: Atkinson Hyperlegible Next. Needs to be loaded (Google Fonts or self-hosted). */
+  --font-family-base: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+
+  /* Each style = size / line height / weight. Size is rem; line height is a unitless ratio (Figma px in comments). */
+  --text-heading-display-size: 2.375rem;  /* 38px */
+  --text-heading-display-line: 1.26;  /* 48px / 38px */
+  --text-heading-display-weight: var(--font-weight-semibold);
+
+  --text-heading-title-size: 2rem;        /* 32px */
+  --text-heading-title-line: 1.25;  /* 40px / 32px */
+  --text-heading-title-weight: var(--font-weight-semibold);
+
+  --text-heading-section-size: 1.625rem;  /* 26px */
+  --text-heading-section-line: 1.31;  /* 34px / 26px */
+  --text-heading-section-weight: var(--font-weight-semibold);
+
+  --text-heading-card-size: 1.375rem;     /* 22px */
+  --text-heading-card-line: 1.36;  /* 30px / 22px */
+  --text-heading-card-weight: var(--font-weight-semibold);
+
+  --text-body-regular-size: 1.125rem;     /* 18px */
+  --text-body-regular-line: 1.44;  /* 26px / 18px */
+  --text-body-regular-weight: var(--font-weight-regular);
+
+  --text-body-small-size: 1rem;           /* 16px */
+  --text-body-small-line: 1.5;  /* 24px / 16px */
+  --text-body-small-weight: var(--font-weight-regular);
+
+  --text-label-button-size: 1.125rem;     /* 18px */
+  --text-label-button-line: 1.44;  /* 26px / 18px */
+  --text-label-button-weight: var(--font-weight-semibold);
+
+  --text-label-label-size: 1rem;          /* 16px */
+  --text-label-label-line: 1.5;  /* 24px / 16px */
+  --text-label-label-weight: var(--font-weight-medium);
+
+  /* ============ SPACING ============ */
+  --space-4:  0.25rem;  /* 4px */
+  --space-8:  0.5rem;   /* 8px */
+  --space-12: 0.75rem;  /* 12px */
+  --space-16: 1rem;     /* 16px */
+  --space-24: 1.5rem;   /* 24px */
+  --space-32: 2rem;     /* 32px */
+  --space-48: 3rem;     /* 48px */
+  --space-64: 4rem;     /* 64px */
+
+  /* ============ BORDER WIDTH ============ */
+  --border-0: 0;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+
+  /* ============ RADIUS ============ */
+  /* Buttons and inputs use 12, cards use 16, tags use 8. */
+  --radius-0:    0;
+  --radius-4:    4px;
+  --radius-8:    8px;
+  --radius-12:   12px;
+  --radius-16:   16px;
+  --radius-24:   24px;
+  --radius-full: 9999px;
+}
+
+/*
+ * Example of using a type style (copy the pattern for the others):
+ *
+ * .card-title {
+ *   font-family: var(--font-family-base);
+ *   font-size: var(--text-heading-card-size);
+ *   line-height: var(--text-heading-card-line);
+ *   font-weight: var(--text-heading-card-weight);
+ *   color: var(--color-text-primary);
+ * }
+ */
